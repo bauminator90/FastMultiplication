@@ -1,0 +1,33 @@
+﻿Der Buildvorgang wurde am 07.07.2015 13:47:51 gestartet.
+     1>Projekt "C:\Users\david\Documents\Visual Studio 2013\Projects\FastMultiplication\FastMultiplication\FastMultiplication.vcxproj" auf Knoten "2", Build Ziel(e).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\schnellemultiplikation.h(32): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\schnellemultiplikation.h(136): warning C4244: '=': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(182): warning C4018: '>=': Konflikt zwischen 'signed' und 'unsigned'
+                 c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\schnellemultiplikation.h(154): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> FundamentalDivision<2>(const BadicRepresentation<2> &,const BadicRepresentation<2> &,bool)".
+                 with
+                 [
+                     _Ty=BadicRepresentation<2>
+                 ]
+                 c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\main.cpp(141): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<10> ChangeBase2to10<10>(BadicRepresentation<2>)".
+     1>c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(185): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(189): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(205): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(26): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
+                 c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(231): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> FundamentalAdd<2>(const BadicRepresentation<2> &,const BadicRepresentation<2> &)".
+                 c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\schnellemultiplikation.h(154): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> FundamentalDivision<2>(const BadicRepresentation<2> &,const BadicRepresentation<2> &,bool)".
+                 with
+                 [
+                     _Ty=BadicRepresentation<2>
+                 ]
+     1>c:\users\david\documents\visual studio 2013\projects\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(74): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\david\Documents\Visual Studio 2013\Projects\FastMultiplication\Debug\FastMultiplication.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\david\Documents\Visual Studio 2013\Projects\FastMultiplication\Debug\FastMultiplication.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\david\Documents\Visual Studio 2013\Projects\FastMultiplication\Debug\FastMultiplication.lib" /MACHINE:X86 Debug\Main.obj
+     1>LINK : fatal error LNK1168: "C:\Users\david\Documents\Visual Studio 2013\Projects\FastMultiplication\Debug\FastMultiplication.exe" kann nicht zum Schreiben geöffnet werden.
+     1>Die Erstellung des Projekts "C:\Users\david\Documents\Visual Studio 2013\Projects\FastMultiplication\FastMultiplication\FastMultiplication.vcxproj" ist abgeschlossen, Build Ziel(e) -- FEHLER.
+
+Fehler beim Buildvorgang.
+
+Verstrichene Zeit 00:00:00.90

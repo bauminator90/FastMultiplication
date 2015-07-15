@@ -1,6 +1,7 @@
 #pragma once
 #include<vector>
 #include<math.h>
+#include<algorithm>
 #include"Polynome.h"
 
 using namespace std;

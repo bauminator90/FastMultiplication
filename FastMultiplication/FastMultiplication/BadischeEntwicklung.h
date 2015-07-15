@@ -9,8 +9,8 @@ template<int B>
 class BadicRepresentation
 {
 public:
-	BadicRepresentation(int x = 0);				//Konstruktor mit Defaultparameter x=0
-	BadicRepresentation(vector<int> const& x);	//Konstruktor 
+    explicit BadicRepresentation(int x = 0);				//Konstruktor mit Defaultparameter x=0
+    explicit BadicRepresentation(vector<int> const& x);	//Konstruktor
 	~BadicRepresentation();						//Destruktor 
 	vector<int> data;							//Array der Koeffizienten der B-adischen Darstellung
 	int sgn = 0;								//Vorzeichen der dargestellten Zahl

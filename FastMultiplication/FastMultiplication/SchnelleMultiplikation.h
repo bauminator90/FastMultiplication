@@ -281,41 +281,25 @@ BadicRepresentation<2> TwoMultiply(BadicRepresentation<2> const& x, BadicReprese
 
 
 /*
-Modulo-Operation für zwei ganze Zahlen in 2-adischer Entwicklung - Modulo(BadicRepresentation<2> const& x, BadicRepresentation<2> const& y)
-Input: zwei ganze Zahlen x und y in 2-adischer Entwicklung, wobei y eine 2er-Potenz +1 ist und kein Vorzeichen aufweist
-Output: 2-adische Entwicklung der Zahl z=x % y
-Beispiel:	BadicRepresentation<2> z = Modulo(x,y);
-*/
-/*
-BadicRepresentation<2> Modulo(BadicRepresentation<2> const& x, BadicRepresentation<2> const& y){
-	if (x.data.size() < y.data.size()){ return x; }
-	else {
-		BadicRepresentation<2> xnew = x;
-		while (y.data.size() < xnew.data.size()){
-			int diff = xnew.data.size() - y.data.size();
-			vector<int> newy(diff);
-			for (unsigned int i = 0; i < y.data.size(); i++){
-				newy.push_back(y.data.at(i));
-			}
-			reverse(newy.begin(), newy.end());
-			BadicRepresentation<2> y2(newy);
-			xnew = FundamentalSubtract(xnew, y2);
-		}
-		if (xnew < y){ return xnew; }
-		else{ return FundamentalSubtract(xnew, y); }
-	}
-}
-*/
-
-/*
 Schnelle Multiplikation zweier ganzer Zahlen in B-adischer Entwicklung - FastMultiply(BadicRepresentation<B> x, BadicRepresentation<B> y, int q)
 Input: zwei ganze Zahlen x und y in B-adischer Entwicklung, ganze Zahl q (Logarithmus der 2-adischen Bitlänge)
 Output: B-adische Entwicklung der Zahl z=x*y
 Beispiel:	BadicRepresentation<B> x_b = FastMultiply(x,y,6);
 */
 template <int B>
-BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentation<B> y, int q){
-	//Berechne h und r
+BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentation<B> y){
+	//Ändere x und y in 2-adisch entwickelte Zahlen ab
+	BadicRepresentation<2> x_new = ChangeBase(x);
+	BadicRepresentation<2> y_new = ChangeBase(y);
+	
+	//Berechne q, h und r
+	int q = log(x_new.data.size()) / log(2);
+	q = q + 1;
+	if (log(y_new.data.size()) / log(2) > q){ 
+		q = log(y_new.data.size()) / log(2);
+		q = q + 1;
+	}
+	
 	int h = (q - 1) / 2;
 	cout << "q= "<< q << endl;
 	h = h + 1;
@@ -324,9 +308,6 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
 	cout << "r= " << r << endl;
 	//erstelle die neue Basis
 	BadicRepresentation<2> B_new = FindBnew(r);
-	//Ändere x und y in 2-adisch entwickelte Zahlen ab
-	BadicRepresentation<2> x_new = ChangeBase(x);
-	BadicRepresentation<2> y_new = ChangeBase(y);
 	
 	//Berechne m als Modul
 	int modulpot = 3 * r;

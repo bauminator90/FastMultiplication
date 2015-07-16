@@ -7,9 +7,13 @@ int main()
 {
     static const int B = 10;
 
-    vector<int> x = {2, 3};
+    // original:
+//    vector<int> x = { 2,3,1,4,1,7,7,8,9,1};
+//	  vector<int> y = { 8,5,2,1,7,1};
+
+    vector<int> x = {2, 3, 1, 4, 1};
     int x_s = 1;
-    vector<int> y = {1,1};
+    vector<int> y = {8, 5, 2, 1};
     int y_s = 0;
 
     BadicRepresentation<B> x_b(x);

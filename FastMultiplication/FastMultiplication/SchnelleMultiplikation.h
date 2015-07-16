@@ -3,6 +3,7 @@
 #include<math.h>
 #include<algorithm>
 #include"Polynome.h"
+#include<time.h>
 
 using namespace std;
 
@@ -116,33 +117,64 @@ Beispiel:	IntegerPolynom<B> z = FastMultiplyPoly(f,g,16,zeta);
 template <int B>
 IntegerPolynom<B> FastMultiplyPoly(IntegerPolynom<B> const& f, IntegerPolynom<B> const& g, int n, vector<BadicRepresentation<B>> const& zeta){
 	//führe Fouriertransformation für f und g durch
+	double time = 0.0, tstart;
+	tstart = clock();
 	vector<BadicRepresentation<B>> f_coeff;
 	vector<BadicRepresentation<B>> g_coeff;
 	f_coeff = FastdFT(f, n, zeta);
+	time = clock() - tstart;
+	time = time / CLOCKS_PER_SEC;
+	cout << "Erste dFT-Berechnung: " << time << endl;
+	time = 0.0;
+	tstart = clock();
 	g_coeff = FastdFT(g, n, zeta);
+	time = clock() - tstart;
+	time = time / CLOCKS_PER_SEC;
+	cout << "Zweite dFT-Berechnung: " << time << endl;
+
 	//Multipliziere die einzelnen Werte der Fouriertransformationen
+	time = 0.0;
+	tstart = clock();
 	vector<BadicRepresentation<B>> h_coeff;
 	for (unsigned int i = 0; i < n; i++){
-		if (i >= f_coeff.size() || i >= g_coeff.size()) { h_coeff.push_back(0); }
+		if (i >= f_coeff.size() || i >= g_coeff.size()) { h_coeff.push_back(BadicRepresentation<B>(0)); }
 		else{
 			h_coeff.push_back(FundamentalMultiply(f_coeff.at(i), g_coeff.at(i)));
 		}
 	}
+	time = clock() - tstart;
+	time = time / CLOCKS_PER_SEC;
+	cout << "Multiplikation der dFTs: " << time << endl;
+
 	//erstelle Polynom aus den multiplizierten Werten
+	time = 0.0;
+	tstart = clock();
 	IntegerPolynom<B> hi(h_coeff);
 	vector<BadicRepresentation<B>> h_dFT;
 	//Führe inverse dFT für das entstandene Polynom durch
 	h_dFT = FastdFT(hi, n , zetainv(zeta));
+	time = clock() - tstart;
+	time = time / CLOCKS_PER_SEC;
+	cout << "Inverse dFT: " << time << endl;
 	
 	//Berechne den Modul in welchem die Multiplikation durchgeführt wird: m=2^(3n/2)+1
+	time = 0.0;
+	tstart = clock();
 	BadicRepresentation<B> modul=FundamentalAdd(pow(BadicRepresentation<B>(2), (3 * n / 2)),BadicRepresentation<B>(1));
+	time = clock() - tstart;
+	time = time / CLOCKS_PER_SEC;
+	cout << "Berechnung des Moduls: " << time << endl;
 
 	//Führe Moduloberechnung durch
+	time = 0.0;
+	tstart = clock();
 	for (unsigned int i = 0; i < h_dFT.size(); i++){
-		cout << i << endl;
 		h_dFT.at(i) = h_dFT.at(i) % modul;
 		h_dFT.at(i) = FundamentalDivision(h_dFT.at(i), BadicRepresentation<B>(n)).at(0);
 	}
+	time = clock() - tstart;
+	time = time / CLOCKS_PER_SEC;
+	cout << "Modulooperationen: " << time << endl;
 
 	//gebe entstandenes Polynom zurück
 	IntegerPolynom<B> h(h_dFT);

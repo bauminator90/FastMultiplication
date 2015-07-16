@@ -13,6 +13,9 @@ using namespace std;
 
 int main(){
 	/*
+	Erstellt B-adische Entwicklung und gibt diese aus
+	*/
+	/*
 	static const int B = 10;
 
 	vector<int> x = { 2,3,1,4,1,7,7,8,9,1};
@@ -32,6 +35,9 @@ int main(){
 	cout << endl;
 	*/
 
+	/*
+	Führt alle Algorithmen einmal aus
+	*/
 	/*
 	//Führe gewöhnliche Addition durch
 	BadicRepresentation<B> z_b;
@@ -65,23 +71,6 @@ int main(){
 	//cout << "Z=X*Y in B-adischer Darstellung: " << z_b << endl;
 
 
-	/*
-	//Führe schnelle Multiplikation nach Schönhage-Strassen durch
-	//cout << endl;
-	//cout << "Schnelle Multiplikation: " << endl;
-	vector<int> a = { 1, 9, 8, 9, 8, 7, 4, 4, 3, 6, 7, 8, 4, 6, 2, 4};
-	int a_s = 1;
-	vector<int> b = { 3, 7, 3, 2, 5, 2, 3, 5, 4, 3, 6, 7, 8, 4, 6, 1 };
-	int b_s = 0;
-	BadicRepresentation<B> a_b(a);
-	a_b.sgn = a_s;
-	BadicRepresentation<B> b_b(b);
-	b_b.sgn = b_s;
-
-	z_b = FastMultiply(a_b, b_b, 2048, 11);
-
-
-
 
 	//Erstelle Polynome und gebe diese aus
 	vector<int> fc{ 445,14,354,-2,9,23,33,56,7,45,75,77,3,2,1234,3 };
@@ -112,6 +101,10 @@ int main(){
 	//cout << "h(X)=f(X)/g(X)=" << z.at(0) << endl;
 	//cout << endl;
 	*/
+
+	/*
+	Führt schnelle Multiplication aus
+	*/
 	/*
 	const int B = 10;
 	vector<int> fcd{ 5, 2, 9, 7, 4, 6, 7, 18,12,13,14 };
@@ -137,7 +130,7 @@ int main(){
 
 
 
-	//BadicRepresentation<B> z = FastMultiply<B>(x_b, y_b,6); //6, da die Zahlen höchstens n=2^6=64 Stellen in 2-ad. Darstellung besitzen
+	//BadicRepresentation<B> z = FastMultiply<B>(x_b, y_b); 
 	//cout << z << endl;
 	*/
 
@@ -205,8 +198,56 @@ int main(){
 	*/
 
 	/*
+	Testet die Laufzeit der FastMultiplyPoly Funktion
+	*/
+	/*const int B = 10;
+	int randomNr;
+	int randomNr2;
+	vector<int> coeff1;
+	vector<int> coeff2;
+	int grad = 50;
+	for (unsigned int j = 0; j < grad+1; j++){
+		randomNr = rand() % 1000;
+		randomNr2 = rand() % 1000;
+		coeff1.push_back(randomNr);
+		coeff2.push_back(randomNr2);
+	}
+	IntegerPolynom<B> f(coeff1);
+	//cout << f << endl;
+	IntegerPolynom<B> g(coeff2);
+	//cout << g << endl;
+
+	int gradsumme = 2 * grad;
+	int zweipotenzsumme = 1;
+	int pot = 1;
+	while (gradsumme > zweipotenzsumme){ zweipotenzsumme = pow(2, pot); pot++; }
+
+	vector<BadicRepresentation<B>> zetas;
+	BadicRepresentation<B> zeta0(1);
+	BadicRepresentation<B> zeta1(8);
+	zetas.push_back(zeta0);
+	zetas.push_back(zeta1);
+	for (unsigned int p = 0; p < zweipotenzsumme - 2; p++){
+		zetas.push_back(FundamentalMultiply(zetas.back(), zeta1));
+	}
+
+	double timer = 0.0, timestart;
+	timestart = clock();
+	IntegerPolynom<B> z2 = FastMultiplyPoly<B>(f, g, zweipotenzsumme, zetas);
+	timer = clock() - timestart;
+	timer = timer / CLOCKS_PER_SEC;
+	/*cout << z2 << endl;
+	cout << endl;
+	cout << FundamentalMultiplyPoly(f, g) << endl;
+	cout << endl;*/
+	//cout << "gesamte Zeit mit FastMultiplyPoly: " << timer << endl;
+
+
+
+	/*
 	Testet die Geschwindigkeit zwischen gewöhnlicher und schneller Polynom Multiplikation
 	*/
+	
 	const int B = 10;
 	srand(time(NULL));
 	int randomNumber1;
@@ -242,17 +283,17 @@ int main(){
 			else { times.at(times.size() - 1) = times.at(times.size() - 1) + time1; }
 			//cout << "Fundamental beendet" << endl;
 
-			/*int gradsumme = 2 * i;
+			int gradsumme = 2 * i;
 			int zweipotenzsumme = 1;
-			int i = 1;
-			while (gradsumme > zweipotenzsumme){ zweipotenzsumme = pow(2, i); i++; }
+			int pot = 1;
+			while (gradsumme > zweipotenzsumme){ zweipotenzsumme = pow(2, pot); pot++; }
 
 			vector<BadicRepresentation<B>> zetas;
 			BadicRepresentation<B> zeta0(1);
 			BadicRepresentation<B> zeta1(8);
 			zetas.push_back(zeta0);
 			zetas.push_back(zeta1);
-			for (unsigned int i = 0; i < zweipotenzsumme - 2; i++){
+			for (unsigned int p = 0; p < zweipotenzsumme - 2; p++){
 			zetas.push_back(FundamentalMultiply(zetas.back(), zeta1));
 			}
 
@@ -263,13 +304,11 @@ int main(){
 			if (k == 0){ dfttimes.push_back(time2); }
 			else {dfttimes.at(dfttimes.size() - 1) = dfttimes.at(dfttimes.size() - 1) + time2; }
 			//cout << "Kara beendet" << endl;
-			*/
+			
 		}
-		cout << "i=" << i << " - time=" << times.at(times.size() - 1) / end << endl;// " & dfttime= " << dfttimes.at(dfttimes.size() - 1) / end << endl;
+		cout << "i=" << i << " - time=" << times.at(times.size() - 1) / end << " & dfttime= " << dfttimes.at(dfttimes.size() - 1) / end << endl;
 	}
-
-
-
+	
 
 	/*
 	Testet die Funktionalität von der schnellen Multiplikation
@@ -286,6 +325,7 @@ int main(){
 	cout << z << endl;
 	cout << FundamentalMultiply<2>(x_new, y_new)<<endl;
 	*/
+
 
 	//Stellt sicher, dass sich die Konsolenanwendung nicht schließt
 	int tra;

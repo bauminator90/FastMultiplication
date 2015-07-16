@@ -210,11 +210,11 @@ int main(){
 	int max = log(x_new.data.size())/log(2);
 	if (log(y_new.data.size())/log(2) > max){ max = log(y_new.data.size())/log(2); }
 	BadicRepresentation<2> z = FastMultiply<2>(x_new, y_new, max);
-	cout << z << endl;
-	cout << FundamentalMultiply<2>(x_new, y_new)<<endl;
+    cout << z << endl;
+    cout << FundamentalMultiply<2>(x_new, y_new)<<endl;
 
 	//Stellt sicher, dass sich die Konsolenanwendung nicht schließt
-	int tra;
-	cin >> tra;
+    int tra;
+    cin >> tra;
 	return 0;                                           
 }

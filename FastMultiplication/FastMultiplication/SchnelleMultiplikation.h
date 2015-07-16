@@ -1,6 +1,7 @@
 #pragma once
 #include<vector>
 #include<math.h>
+#include<algorithm>
 #include"Polynome.h"
 
 using namespace std;
@@ -313,7 +314,7 @@ Output: B-adische Entwicklung der Zahl z=x*y
 Beispiel:	BadicRepresentation<B> x_b = FastMultiply(x,y,6);
 */
 template <int B>
-BadicRepresentation<B> FastMultiply(BadicRepresentation<B> x, BadicRepresentation<B> y, int q){
+BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentation<B> y, int q){
 	//Berechne h und r
 	int h = (q - 1) / 2;
 	cout << "q= "<< q << endl;

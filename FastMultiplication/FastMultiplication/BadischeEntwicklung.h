@@ -1,6 +1,7 @@
 #pragma once
 #include<vector>
 #include<math.h>
+#include<stdexcept>
 
 using namespace std;
 
@@ -8,8 +9,8 @@ template<int B>
 class BadicRepresentation
 {
 public:
-	BadicRepresentation(int x = 0);				//Konstruktor mit Defaultparameter x=0
-	BadicRepresentation(vector<int> const& x);	//Konstruktor 
+    explicit BadicRepresentation(int x = 0);				//Konstruktor mit Defaultparameter x=0
+    explicit BadicRepresentation(vector<int> const& x);	//Konstruktor
 	~BadicRepresentation();						//Destruktor 
 	vector<int> data;							//Array der Koeffizienten der B-adischen Darstellung
 	int sgn = 0;								//Vorzeichen der dargestellten Zahl
@@ -173,38 +174,28 @@ BadicRepresentation<B> pow(BadicRepresentation<B> const& a, int n)
 	}
 }
 
-/*
-Überladung des Ausgabeoperators << - operator<<(ostream& os, const BadicRepresentation<B>& b)
-Input: Instanz der Klasse BadicRepresentation
-Output: Ausgabe der B-adischen Repräsentation dieser Instanz
-Beispiel: std::cout << xb << endl;
-*/
+///*
+//Überladung des Ausgabeoperators << - operator<<(ostream& os, const BadicRepresentation<B>& b)
+//Input: Instanz der Klasse BadicRepresentation
+//Output: Ausgabe der B-adischen Repräsentation dieser Instanz
+//Beispiel: std::cout << xb << endl;
+//*/
 template <int B>
 ostream& operator<<(ostream& os, const BadicRepresentation<B>& b)
 {
-	os << "(-1)^" << b.sgn << "* (";						//nehme Vorzeichen auf
-	for (unsigned int i = 0; i <= b.data.size() - 1; i++){	//nehme einzelne Koeffizienten mit der passenden Basispotenz auf
-		os << b.data.at(i) << "*" << B << "^" << i;
-		if (i < b.data.size() - 1) { os << " + "; }
-		else { os << ")"; }
-	}
-	return os;												//gebe entstandenen Stream zurück
-}
+    if (b.sgn == 1){ os << "-"; }
+    if (B <= 10) {
+        for (unsigned int i = 0; i < b.data.size(); i++){
+            os << b.data.at(b.data.size()-i-1);
+        }
+    } else {
+        for (unsigned int i = 0; i < b.data.size(); i++) {
+            os << b.data.at(b.data.size()-i-1) << " ";
+        }
+    }
 
-
-/*
-Überladung des Ausgabeoperators << für B=10 - operator<<(ostream& os, const BadicRepresentation<10>& b)
-Input: Instanz der Klasse BadicRepresentation mit B=10
-Output: Ausgabe der 10-adischen Repräsentation dieser Instanz
-Beispiel: std::cout << xb << endl;
-*/
-ostream& operator<<(ostream& os, const BadicRepresentation<10>& b)
-{
-	if (b.sgn == 1){ os << "-"; }							//nehme Vorzeichen auf
-	for (unsigned int i = 0; i <= b.data.size() - 1; i++){	//nehme einzelne Koeffizienten mit der passenden Zehnerpotenz auf
-		os << b.data.at(b.data.size()-i-1);
-	}
-	return os;												//gebe entstandenen Stream zurück
+    os << " (" << B << ")";
+    return os;
 }
 
 

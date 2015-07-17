@@ -428,14 +428,15 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
 	//berechne z als komponentenweises Produkt der Fouriertransformierten
 	vector<BadicRepresentation<2>> z_hat;
 	for (unsigned int i = 0; i < 2 * r; i++){
-        /*if (h>2){
+		//cout << h << endl;
+        if (h>4){
 			//nutze rekursiv FastMultiply zur Berechnung
             z_hat.push_back(FastMultiply<2>(x_hat.at(i), y_hat.at(i)));
 		}
-        else{*/
+        else{
 			//und falls Eingabe klein genug die gewöhnliche Multiplikation
 			z_hat.push_back(FundamentalMultiply<2>(x_hat.at(i), y_hat.at(i)));
-        //}
+        }
 	}
 
 //	cout << "Führe Modulorechnung durch" << endl;
@@ -463,8 +464,6 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
 //	}
 
 
-
-	//FALSCH AB HIER!
 //	cout << "Stelle Darstellung von z sicher" << endl;
 	//berechne nun die entstandene Zahl aus den bisherigen Ergebnissen
 	vector<BadicRepresentation<2>> z_end;
@@ -494,5 +493,6 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
 	
 	//Gebe nun das Ergebnis als B-adische Entwicklung zurück
 	//BadicRepresentation<B> zret= ChangeBase2to10<B>(z_2);
+	z_ret.sgn = (x.sgn + y.sgn) % 2;
 	return z_ret;
 }

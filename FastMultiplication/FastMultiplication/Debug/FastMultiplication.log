@@ -1,92 +1,70 @@
-﻿Der Buildvorgang wurde am 16.07.2015 12:19:36 gestartet.
+﻿Der Buildvorgang wurde am 17.07.2015 14:43:11 gestartet.
      1>Projekt "D:\Projekte\FastMulti\FastMultiplication\FastMultiplication\FastMultiplication.vcxproj" auf Knoten "2", Build Ziel(e).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(60): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(251): warning C4244: '=': Konvertierung von 'double' in 'int', möglicher Datenverlust
-     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(252): warning C4244: 'Argument': Konvertierung von 'time_t' in 'unsigned int', möglicher Datenverlust
-     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(289): warning C4244: '=': Konvertierung von 'double' in 'int', möglicher Datenverlust
-     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(296): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen_polynome.h(95): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(279): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "IntegerPolynom<10> FundamentalMultiplyPoly<10>(const IntegerPolynom<10> &,const IntegerPolynom<10> &)".
-     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen_polynome.h(96): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
-     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(139): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(301): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "IntegerPolynom<10> FastMultiplyPoly<10>(const IntegerPolynom<10> &,const IntegerPolynom<10> &,int,const std::vector<BadicRepresentation<10>,std::allocator<_Ty>> &)".
-                 with
-                 [
-                     _Ty=BadicRepresentation<10>
-                 ]
-     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\badischeentwicklung.h(89): warning C4244: '=': Konvertierung von 'double' in 'long', möglicher Datenverlust
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\badischeentwicklung.h(86): Bei der Kompilierung der  Klassen-template der int BadicRepresentation<10>::IntRepresentation(void)-Memberfunktion
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen_polynome.h(97): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "int BadicRepresentation<10>::IntRepresentation(void)".
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\badischeentwicklung.h(31): Bei der Kompilierung der  Klassen-template der BadicRepresentation<10>::BadicRepresentation(int)-Memberfunktion
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(292): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<10>::BadicRepresentation(int)".
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\polynome.h(17): Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "BadicRepresentation<10>".
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(270): Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "IntegerPolynom<10>".
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(329): warning C4244: 'Argument': Konvertierung von 'time_t' in 'unsigned int', möglicher Datenverlust
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(328): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(358): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> FastMultiply<2>(BadicRepresentation<2>,BadicRepresentation<2>)".
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(329): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(335): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(350): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(371): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(389): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(392): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(407): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(430): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(26): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen_polynome.h(101): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<10> FundamentalAdd<10>(const BadicRepresentation<10> &,const BadicRepresentation<10> &)".
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(279): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "IntegerPolynom<10> FundamentalMultiplyPoly<10>(const IntegerPolynom<10> &,const IntegerPolynom<10> &)".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(342): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> FundamentalAdd<2>(const BadicRepresentation<2> &,const BadicRepresentation<2> &)".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(358): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> FastMultiply<2>(BadicRepresentation<2>,BadicRepresentation<2>)".
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(74): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(90): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(124): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<10>,std::allocator<_Ty>> FastdFT<10>(const IntegerPolynom<10> &,int,const std::vector<_Ty,std::allocator<_Ty>> &)".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(414): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> FastdFT<2>(const IntegerPolynom<2> &,int,const std::vector<_Ty,std::allocator<_Ty>> &)".
                  with
                  [
-                     _Ty=BadicRepresentation<10>
-                 ]
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(301): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "IntegerPolynom<10> FastMultiplyPoly<10>(const IntegerPolynom<10> &,const IntegerPolynom<10> &,int,const std::vector<BadicRepresentation<10>,std::allocator<_Ty>> &)".
-                 with
-                 [
-                     _Ty=BadicRepresentation<10>
+                     _Ty=BadicRepresentation<2>
                  ]
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(42): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(155): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<10>,std::allocator<_Ty>> zetainv<10>(std::vector<_Ty,std::allocator<_Ty>>)".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(452): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> zetainv<2>(std::vector<_Ty,std::allocator<_Ty>>)".
                  with
                  [
-                     _Ty=BadicRepresentation<10>
+                     _Ty=BadicRepresentation<2>
                  ]
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(182): warning C4018: '>=': Konflikt zwischen 'signed' und 'unsigned'
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(173): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<10>,std::allocator<_Ty>> FundamentalDivision<10>(const BadicRepresentation<10> &,const BadicRepresentation<10> &,bool)".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(456): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> FundamentalDivision<2>(const BadicRepresentation<2> &,const BadicRepresentation<2> &,bool)".
                  with
                  [
-                     _Ty=BadicRepresentation<10>
+                     _Ty=BadicRepresentation<2>
                  ]
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(185): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(189): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen.h(205): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\polynome.h(77): warning C4018: '>=': Konflikt zwischen 'signed' und 'unsigned'
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\polynome.h(76): Bei der Kompilierung der  Klassen-template der BadicRepresentation<10> IntegerPolynom<10>::operator ()(int) const-Memberfunktion
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(91): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<10> IntegerPolynom<10>::operator ()(int) const".
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\polynome.h(50): Bei der Kompilierung der  Klassen-template der IntegerPolynom<10>::IntegerPolynom(const std::vector<BadicRepresentation<10>,std::allocator<_Ty>> &)-Memberfunktion
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\polynome.h(76): Bei der Kompilierung der  Klassen-template der BadicRepresentation<2> IntegerPolynom<2>::operator ()(int) const-Memberfunktion
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(91): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> IntegerPolynom<2>::operator ()(int) const".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\polynome.h(50): Bei der Kompilierung der  Klassen-template der IntegerPolynom<2>::IntegerPolynom(const std::vector<BadicRepresentation<2>,std::allocator<_Ty>> &)-Memberfunktion
                  with
                  [
-                     _Ty=BadicRepresentation<10>
+                     _Ty=BadicRepresentation<2>
                  ]
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\fundamentalealgorithmen_polynome.h(107): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "IntegerPolynom<10>::IntegerPolynom(const std::vector<BadicRepresentation<10>,std::allocator<_Ty>> &)".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(397): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "IntegerPolynom<2>::IntegerPolynom(const std::vector<BadicRepresentation<2>,std::allocator<_Ty>> &)".
                  with
                  [
-                     _Ty=BadicRepresentation<10>
+                     _Ty=BadicRepresentation<2>
                  ]
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\polynome.h(31): Bei der Kompilierung der  Klassen-template der IntegerPolynom<10>::IntegerPolynom(const std::vector<int,std::allocator<_Ty>> &)-Memberfunktion
-                 with
-                 [
-                     _Ty=int
-                 ]
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\main.cpp(270): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "IntegerPolynom<10>::IntegerPolynom(const std::vector<int,std::allocator<_Ty>> &)".
-                 with
-                 [
-                     _Ty=int
-                 ]
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(397): Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "IntegerPolynom<2>".
      1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(22): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(97): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<10>,std::allocator<_Ty>> zetaquad<10>(std::vector<_Ty,std::allocator<_Ty>>)".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(97): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> zetaquad<2>(std::vector<_Ty,std::allocator<_Ty>>)".
                  with
                  [
-                     _Ty=BadicRepresentation<10>
+                     _Ty=BadicRepresentation<2>
                  ]
-                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(124): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<10>,std::allocator<_Ty>> FastdFT<10>(const IntegerPolynom<10> &,int,const std::vector<_Ty,std::allocator<_Ty>> &)".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\schnellemultiplikation.h(414): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> FastdFT<2>(const IntegerPolynom<2> &,int,const std::vector<_Ty,std::allocator<_Ty>> &)".
                  with
                  [
-                     _Ty=BadicRepresentation<10>
+                     _Ty=BadicRepresentation<2>
                  ]
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Projekte\FastMulti\FastMultiplication\Debug\FastMultiplication.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Projekte\FastMulti\FastMultiplication\Debug\FastMultiplication.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Projekte\FastMulti\FastMultiplication\Debug\FastMultiplication.lib" /MACHINE:X86 Debug\Main.obj
@@ -95,4 +73,4 @@
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:02.45
+Verstrichene Zeit 00:00:02.89

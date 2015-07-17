@@ -18,9 +18,9 @@ int main(){
 	/*
 	static const int B = 10;
 
-	vector<int> x = { 2,3,1,4,1,7,7,8,9,1};
+	vector<int> x = { 2, 3, 1, 4, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 2, 3, 1, 4, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 2, 3, 1, 4, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 2, 3, 1, 4, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 7, 7, 8, 9, 1, 5, 6, 7, 8, 3, 4, 2, 3, 3, 4, 2, 3, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 3, 4, 2, 3, 5, 7, 8, 9, 2, 5, 7, 7, 8, 9, 1, 5, 6, 7, 8, 3, 4, 2, 3 };
 	int x_s = 1;
-	vector<int> y = { 8,5,2,1,7,1};
+	vector<int> y = { 8, 5, 2, 1, 7, 1, 7, 7, 7, 7, 8, 9, 1, 5, 6, 7, 8, 3, 4, 2, 3, 7, 7, 8, 9, 1, 5, 6, 7, 8, 3, 4, 2, 3, 8, 9, 1, 5, 6, 7, 8, 3, 2, 3, 1, 4, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 2, 3, 1, 4, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 2, 3, 1, 4, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 2, 3, 1, 4, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 2, 3, 1, 4, 1, 7, 7, 8, 9, 1, 5, 6, 7, 8, 4, 2, 3 };
 	int y_s = 0;
 
 
@@ -240,14 +240,11 @@ int main(){
 	cout << endl;
 	cout << FundamentalMultiplyPoly(f, g) << endl;
 	cout << endl;*/
-	//cout << "gesamte Zeit mit FastMultiplyPoly: " << timer << endl;
-
-
 
 	/*
 	Testet die Geschwindigkeit zwischen gewöhnlicher und schneller Polynom Multiplikation
 	*/
-	
+	/*
 	const int B = 10;
 	srand(time(NULL));
 	int randomNumber1;
@@ -308,13 +305,12 @@ int main(){
 		}
 		cout << "i=" << i << " - time=" << times.at(times.size() - 1) / end << " & dfttime= " << dfttimes.at(dfttimes.size() - 1) / end << endl;
 	}
-	
+	*/
 
 	/*
 	Testet die Funktionalität von der schnellen Multiplikation
 	*/
-	/*
-	BadicRepresentation<2> x_new = ChangeBase(x_b);
+	/*BadicRepresentation<2> x_new = ChangeBase(x_b);
 	x_new.sgn = x_s;
 	BadicRepresentation<2> y_new = ChangeBase(y_b);
 	y_new.sgn = y_s;
@@ -325,6 +321,51 @@ int main(){
 	cout << z << endl;
 	cout << FundamentalMultiply<2>(x_new, y_new)<<endl;
 	*/
+
+	/*
+	Laufzeitvergleich Fundamental vs Fast
+	*/
+	const int B = 2;
+	srand(time(NULL));
+	int randnr1;
+	int randnr2;
+	vector<double> fundatimes;
+	vector<double> fasttimes;
+	//Zeitmessung
+	for (unsigned int i = 100; i < 1000; i = i + 100){
+		double end = 1;
+		for (unsigned int k = 0; k < end; k++){
+			vector<int> coeff1;
+			vector<int> coeff2;
+			for (unsigned int j = 0; j < i; j++){
+				randnr1 = rand() % 2;
+				randnr2 = rand() % 2;
+				coeff1.push_back(randnr1);
+				coeff2.push_back(randnr2);
+			}
+			BadicRepresentation<B> x(coeff1);
+			BadicRepresentation<B> y(coeff2);
+			
+			double time1 = 0.0, time2 = 0.0, tstart;
+			tstart = clock();
+			BadicRepresentation<B> z1 = FundamentalMultiply<B>(x, y);
+			time1 = clock() - tstart;
+			time1 = time1 / CLOCKS_PER_SEC;
+			if (k == 0){ fundatimes.push_back(time1); }
+			else { fundatimes.at(fundatimes.size() - 1) = fundatimes.at(fundatimes.size() - 1) + time1; }
+
+			tstart = clock();
+			BadicRepresentation<B> z2 = FastMultiply<B>(x, y);
+			time2 = clock() - tstart;
+			time2 = time2 / CLOCKS_PER_SEC;
+			if (k == 0){ fasttimes.push_back(time2); }
+			else { fasttimes.at(fasttimes.size() - 1) = fasttimes.at(fasttimes.size() - 1) + time2; }
+
+		}
+		cout << "i=" << i << " - time=" << fundatimes.at(fundatimes.size() - 1) / end << " & fasttime= " << fasttimes.at(fasttimes.size() - 1) / end << endl;
+	}
+	
+
 
 
 	//Stellt sicher, dass sich die Konsolenanwendung nicht schließt

@@ -1,0 +1,83 @@
+﻿Der Buildvorgang wurde am 23.07.2015 12:30:05 gestartet.
+     1>Projekt "D:\Projekte\FastMulti\FastMultiplication\FastMultiplication\FastMultiplication.vcxproj" auf Knoten "2", Build Ziel(e).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(60): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(251): warning C4244: '=': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>Main.cpp(330): warning C4244: 'Argument': Konvertierung von 'time_t' in 'unsigned int', möglicher Datenverlust
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(328): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+                 Main.cpp(360): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> FastMultiply<2>(BadicRepresentation<2>,BadicRepresentation<2>)".
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(329): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(335): warning C4244: 'Initialisierung': Konvertierung von 'double' in 'int', möglicher Datenverlust
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(350): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(371): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(389): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(392): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(407): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(430): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\Karatsuba.h(134): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+                 Main.cpp(367): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> CleverKaratsuba<2>(const BadicRepresentation<2> &,const BadicRepresentation<2> &)".
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\Karatsuba.h(135): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\Karatsuba.h(136): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\Karatsuba.h(137): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\FundamentaleAlgorithmen.h(26): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(342): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> FundamentalAdd<2>(const BadicRepresentation<2> &,const BadicRepresentation<2> &)".
+                 Main.cpp(360): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> FastMultiply<2>(BadicRepresentation<2>,BadicRepresentation<2>)".
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\FundamentaleAlgorithmen.h(74): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(90): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(414): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> FastdFT<2>(const IntegerPolynom<2> &,int,const std::vector<_Ty,std::allocator<_Ty>> &)".
+                 with
+                 [
+                     _Ty=BadicRepresentation<2>
+                 ]
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(42): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(452): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> zetainv<2>(std::vector<_Ty,std::allocator<_Ty>>)".
+                 with
+                 [
+                     _Ty=BadicRepresentation<2>
+                 ]
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\FundamentaleAlgorithmen.h(182): warning C4018: '>=': Konflikt zwischen 'signed' und 'unsigned'
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(456): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> FundamentalDivision<2>(const BadicRepresentation<2> &,const BadicRepresentation<2> &,bool)".
+                 with
+                 [
+                     _Ty=BadicRepresentation<2>
+                 ]
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\FundamentaleAlgorithmen.h(185): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\FundamentaleAlgorithmen.h(189): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\FundamentaleAlgorithmen.h(205): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\Polynome.h(77): warning C4018: '>=': Konflikt zwischen 'signed' und 'unsigned'
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\Polynome.h(76): Bei der Kompilierung der  Klassen-template der BadicRepresentation<2> IntegerPolynom<2>::operator ()(int) const-Memberfunktion
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(91): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "BadicRepresentation<2> IntegerPolynom<2>::operator ()(int) const".
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\Polynome.h(50): Bei der Kompilierung der  Klassen-template der IntegerPolynom<2>::IntegerPolynom(const std::vector<BadicRepresentation<2>,std::allocator<_Ty>> &)-Memberfunktion
+                 with
+                 [
+                     _Ty=BadicRepresentation<2>
+                 ]
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(397): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "IntegerPolynom<2>::IntegerPolynom(const std::vector<BadicRepresentation<2>,std::allocator<_Ty>> &)".
+                 with
+                 [
+                     _Ty=BadicRepresentation<2>
+                 ]
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(397): Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "IntegerPolynom<2>".
+     1>d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(22): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(97): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> zetaquad<2>(std::vector<_Ty,std::allocator<_Ty>>)".
+                 with
+                 [
+                     _Ty=BadicRepresentation<2>
+                 ]
+                 d:\projekte\fastmulti\fastmultiplication\fastmultiplication\SchnelleMultiplikation.h(414): Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::vector<BadicRepresentation<2>,std::allocator<_Ty>> FastdFT<2>(const IntegerPolynom<2> &,int,const std::vector<_Ty,std::allocator<_Ty>> &)".
+                 with
+                 [
+                     _Ty=BadicRepresentation<2>
+                 ]
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Projekte\FastMulti\FastMultiplication\Release\FastMultiplication.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Projekte\FastMulti\FastMultiplication\Release\FastMultiplication.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Projekte\FastMulti\FastMultiplication\Release\FastMultiplication.lib" /MACHINE:X86 /SAFESEH Release\Main.obj
+         Code wird generiert.
+         Codegenerierung ist abgeschlossen.
+         FastMultiplication.vcxproj -> D:\Projekte\FastMulti\FastMultiplication\Release\FastMultiplication.exe
+     1>Die Erstellung des Projekts "D:\Projekte\FastMulti\FastMultiplication\FastMultiplication\FastMultiplication.vcxproj" ist abgeschlossen, Build Ziel(e).
+
+Build erfolgreich.
+
+Verstrichene Zeit 00:00:02.83

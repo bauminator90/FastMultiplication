@@ -10,13 +10,13 @@ class BadicRepresentation
 {
 public:
     explicit BadicRepresentation(int x = 0);				//Konstruktor mit Defaultparameter x=0
-    explicit BadicRepresentation(vector<int> const& x);	//Konstruktor
-	~BadicRepresentation();						//Destruktor 
-	vector<int> data;							//Array der Koeffizienten der B-adischen Darstellung
-	int sgn = 0;								//Vorzeichen der dargestellten Zahl
-	int IntRepresentation();					//gibt den Zahlwert der B-adischen Entwicklung zurück
+    explicit BadicRepresentation(vector<int> const& x);		//Konstruktor
+	~BadicRepresentation();									//Destruktor 
+	vector<int> data;										//Array der Koeffizienten der B-adischen Darstellung
+	int sgn = 0;											//Vorzeichen der dargestellten Zahl
+	int IntRepresentation();								//gibt den Zahlwert der B-adischen Entwicklung zurück
 	BadicRepresentation<B> operator% (BadicRepresentation<B> const& b) const;	//modulo Operator für zwei B-adisch entwickelte ganze Zahlen
-	bool operator< (BadicRepresentation<B> const& b);	//Vergleichsoperator für zwei B-adisch entwickelte ganze Zahlen
+	bool operator< (BadicRepresentation<B> const& b);		//Vergleichsoperator für zwei B-adisch entwickelte ganze Zahlen
 };
 
 
@@ -174,6 +174,27 @@ BadicRepresentation<B> pow(BadicRepresentation<B> const& a, int n)
 	}
 }
 
+
+/*
+Vergleich der Absolutbeträge zweier B-adischer Entwicklungen - abslower(BadicRepresentation<B> x, BadicRepresentation<B> y)
+Input: zwei Instanzen x und y der Klasse BadicRepresentation
+Output: Wahrheitswert, ob x im Betrag kleiner ist als y oder nicht
+Beispiel: bool kleiner = abslower(x,y);
+*/
+template <int B>
+bool abslower(BadicRepresentation<B> x, BadicRepresentation<B> y){
+	if (x.data.size() < y.data.size()){ return true; }				//Falls x weniger Koeffizienten hat als y, gebe TRUE zurück
+	else if (x.data.size() > y.data.size()) { return false; }		//Falls y weniger Koeffizienten hat, gebe FALSE zurück
+	else {															//Falls beide gleich viele Koeffizienten haben
+		for (int i = y.data.size() - 1; i >= 0; i--){				//gehe einzelne Koeffizienten durch und gebe passendes zurück
+			if (x.data.at(i) > y.data.at(i)) { return false; }
+			else if (x.data.at(i) < y.data.at(i)) { return true; }
+		}
+		return false;
+	}
+}
+
+
 ///*
 //Überladung des Ausgabeoperators << - operator<<(ostream& os, const BadicRepresentation<B>& b)
 //Input: Instanz der Klasse BadicRepresentation
@@ -198,22 +219,3 @@ ostream& operator<<(ostream& os, const BadicRepresentation<B>& b)
     return os;
 }
 
-
-/*
-Vergleich der Absolutbeträge zweier B-adischer Entwicklungen - abslower(BadicRepresentation<B> x, BadicRepresentation<B> y)
-Input: zwei Instanzen x und y der Klasse BadicRepresentation
-Output: Wahrheitswert, ob x im Betrag kleiner ist als y oder nicht
-Beispiel: bool kleiner = abslower(x,y);
-*/
-template <int B>
-bool abslower(BadicRepresentation<B> x, BadicRepresentation<B> y){
-	if (x.data.size() < y.data.size()){ return true; }				//Falls x weniger Koeffizienten hat als y, gebe TRUE zurück
-	else if (x.data.size() > y.data.size()) { return false; }		//Falls y weniger Koeffizienten hat, gebe FALSE zurück
-	else {															//Falls beide gleich viele Koeffizienten haben
-		for (int i = y.data.size() - 1; i >= 0; i--){				//gehe einzelne Koeffizienten durch und gebe passendes zurück
-			if (x.data.at(i) > y.data.at(i)) { return false; }
-			else if (x.data.at(i) < y.data.at(i)) { return true; }
-		}
-		return false;
-	}
-}

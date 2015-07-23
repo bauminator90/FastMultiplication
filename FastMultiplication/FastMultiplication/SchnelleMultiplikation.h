@@ -124,13 +124,11 @@ IntegerPolynom<B> FastMultiplyPoly(IntegerPolynom<B> const& f, IntegerPolynom<B>
 	f_coeff = FastdFT(f, n, zeta);
 	time = clock() - tstart;
 	time = time / CLOCKS_PER_SEC;
-	cout << "Erste dFT-Berechnung: " << time << endl;
 	time = 0.0;
 	tstart = clock();
 	g_coeff = FastdFT(g, n, zeta);
 	time = clock() - tstart;
 	time = time / CLOCKS_PER_SEC;
-	cout << "Zweite dFT-Berechnung: " << time << endl;
 
 	//Multipliziere die einzelnen Werte der Fouriertransformationen
 	time = 0.0;
@@ -144,7 +142,6 @@ IntegerPolynom<B> FastMultiplyPoly(IntegerPolynom<B> const& f, IntegerPolynom<B>
 	}
 	time = clock() - tstart;
 	time = time / CLOCKS_PER_SEC;
-	cout << "Multiplikation der dFTs: " << time << endl;
 
 	//erstelle Polynom aus den multiplizierten Werten
 	time = 0.0;
@@ -155,7 +152,6 @@ IntegerPolynom<B> FastMultiplyPoly(IntegerPolynom<B> const& f, IntegerPolynom<B>
 	h_dFT = FastdFT(hi, n , zetainv(zeta));
 	time = clock() - tstart;
 	time = time / CLOCKS_PER_SEC;
-	cout << "Inverse dFT: " << time << endl;
 	
 	//Berechne den Modul in welchem die Multiplikation durchgeführt wird: m=2^(3n/2)+1
 	time = 0.0;
@@ -163,7 +159,6 @@ IntegerPolynom<B> FastMultiplyPoly(IntegerPolynom<B> const& f, IntegerPolynom<B>
 	BadicRepresentation<B> modul=FundamentalAdd(pow(BadicRepresentation<B>(2), (3 * n / 2)),BadicRepresentation<B>(1));
 	time = clock() - tstart;
 	time = time / CLOCKS_PER_SEC;
-	cout << "Berechnung des Moduls: " << time << endl;
 
 	//Führe Moduloberechnung durch
 	time = 0.0;
@@ -174,7 +169,6 @@ IntegerPolynom<B> FastMultiplyPoly(IntegerPolynom<B> const& f, IntegerPolynom<B>
 	}
 	time = clock() - tstart;
 	time = time / CLOCKS_PER_SEC;
-	cout << "Modulooperationen: " << time << endl;
 
 	//gebe entstandenes Polynom zurück
 	IntegerPolynom<B> h(h_dFT);
@@ -330,19 +324,14 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
     int q = max(q_x, q_y);
 	
     int h = (q - 1) / 2 + 1;
-//	cout << "q= "<< q << endl;
-//	cout << "h= " << h << endl;
 	int r = pow(2, h);
-//    cout << "r= " << r << endl;
 	//erstelle die neue Basis
 	BadicRepresentation<2> B_new = FindBnew(r);
 	
 	//Berechne m als Modul
     BadicRepresentation<2> modulo = FindBnew(3*r);
 	modulo = FundamentalAdd<2>(modulo, BadicRepresentation<2>(1));
-//	cout << "MODUL: " << modulo << endl;
 
-//	cout << "Passe Basis an" << endl;
 	//Passe Koeffizientenvektor so an dass xcoeff die Koeffizienten der neuen B=2^r-adischen Entwicklung enthält
     vector<BadicRepresentation<2> > xcoeff;
 	for (unsigned int i = 0; i < x_new.data.size(); i=i+r){
@@ -360,10 +349,8 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
         while (coeff.data.size() > 1 && coeff.data.back() == 0)
             coeff.data.erase(coeff.data.end()-1);
 		xcoeff.push_back(coeff);
-		//cout << "Koeffizient von x_new an " << i << ": " << coeff << endl;
     }
 
-//	cout << "Passe Basis an" << endl;
 	//Passe Koeffizientenvektor so an dass ycoeff die Koeffizienten der neuen B=2^r-adischen Entwicklung enthält
 	vector<BadicRepresentation<2>> ycoeff;
 	for (unsigned int i = 0; i < y_new.data.size(); i = i + r){
@@ -381,10 +368,8 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
         while (coeff.data.size() > 1 && coeff.data.back() == 0)
             coeff.data.erase(coeff.data.end()-1);
 		ycoeff.push_back(coeff);
-		//cout << "Koeffizient von y_new an " << i << ": " << coeff << endl;
 	}
 
-//	cout << "Fuege Nullen an" << endl;
 	//Füge nötige Nullen an
 	for (unsigned int k = xcoeff.size(); k < 2 * r-1; k++){
 		xcoeff.push_back(BadicRepresentation<2>(0));
@@ -392,12 +377,11 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
 	for (unsigned int k = ycoeff.size(); k < 2 * r-1; k++){
 		ycoeff.push_back(BadicRepresentation<2>(0));
 	}
-//	cout << "Erstelle Polynome" << endl;
+
 	//Erstelle Polynome analog zur B-adischen Entwicklung
 	IntegerPolynom<2> xpoly(xcoeff);
 	IntegerPolynom<2> ypoly(ycoeff);
 
-//	cout << "Erstelle Einheitswurzeln" << endl;
 	//erstelle die Einheitswurzeln
     vector<BadicRepresentation<2> > zetas;
 	BadicRepresentation<2> zeta0(1);
@@ -408,28 +392,24 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
 		zetas.push_back(TwoMultiply(zetas.back(), zeta1) % modulo);
 	}
 
-//	cout << "Führe dFT aus" << endl;
 	//Führe die Fouriertransformationen durch
 	vector<BadicRepresentation<2>> x_hat;
 	x_hat = FastdFT(xpoly, 2*r, zetas);
 
-//	cout << "Führe dFT aus" << endl;
 	vector<BadicRepresentation<2>> y_hat;
 	y_hat = FastdFT(ypoly, 2 * r, zetas);
 
-//	cout << "Führe Modulorechnung durch" << endl;
 	//Führe Moduloberechnung durch
 	for (unsigned int i = 0; i < x_hat.size(); i++){
 		x_hat.at(i) = x_hat.at(i) % modulo;
 		y_hat.at(i) = y_hat.at(i) % modulo;
 	}
 
-//	cout << "Berechne z" << endl;
 	//berechne z als komponentenweises Produkt der Fouriertransformierten
 	vector<BadicRepresentation<2>> z_hat;
 	for (unsigned int i = 0; i < 2 * r; i++){
 		//cout << h << endl;
-        if (h>4){
+        if (h>1000){
 			//nutze rekursiv FastMultiply zur Berechnung
             z_hat.push_back(FastMultiply<2>(x_hat.at(i), y_hat.at(i)));
 		}
@@ -439,13 +419,11 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
         }
 	}
 
-//	cout << "Führe Modulorechnung durch" << endl;
 	//führe erneut eine Moduloberechnung durch
 	for (unsigned int i = 0; i < z_hat.size(); i++){
 		z_hat.at(i) = z_hat.at(i) % modulo;
 	}
 	
-//	cout << "Führe dFT aus" << endl;
 	//berechne nun die inverse Fouriertransformation
 	vector<BadicRepresentation<2>> z_hat_new;
 	IntegerPolynom<2> zpoly(z_hat);
@@ -455,16 +433,7 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
 		z_hat_new.at(i) = z_hat_new.at(i) % modulo;
 		z_hat_new.at(i) = FundamentalDivision<2>(z_hat_new.at(i), BadicRepresentation<2>(2*r)).at(0);
 	}
-//	cout << z_hat_new.size() << endl;
 
-//	cout << modulo << endl;
-//	cout << "B_new: " << B_new << endl;
-//	for (unsigned int i = 0; i < z_hat_new.size(); i++){
-//		cout << z_hat_new.at(i) % modulo << endl;
-//	}
-
-
-//	cout << "Stelle Darstellung von z sicher" << endl;
 	//berechne nun die entstandene Zahl aus den bisherigen Ergebnissen
 	vector<BadicRepresentation<2>> z_end;
 	for (unsigned int i = 0; i < z_hat_new.size(); i++){
@@ -492,7 +461,6 @@ BadicRepresentation<2> FastMultiply(BadicRepresentation<B> x, BadicRepresentatio
 	}
 	
 	//Gebe nun das Ergebnis als B-adische Entwicklung zurück
-	//BadicRepresentation<B> zret= ChangeBase2to10<B>(z_2);
 	z_ret.sgn = (x.sgn + y.sgn) % 2;
 	return z_ret;
 }

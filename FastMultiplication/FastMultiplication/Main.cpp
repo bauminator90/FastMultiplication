@@ -12,6 +12,7 @@ using namespace std;
 
 
 int main(){
+	//Um den Quellcode zu aktivieren, muss der Blockkommentar "/*" und "*/" entfernt werden
 	/*
 	Erstellt B-adische Entwicklung und gibt diese aus
 	*/
@@ -103,7 +104,7 @@ int main(){
 	*/
 
 	/*
-	Führt schnelle Multiplication aus
+	Führt schnelle Multiplikation aus
 	*/
 	/*
 	const int B = 10;
@@ -146,10 +147,9 @@ int main(){
 	vector<double> karatimes;
 	vector<double> cleverkaratimes;
 	//Zeitmessung
-	for (unsigned int i = 10000; i < 15001; i=i+1000){
-	double end = 1;
+	for (unsigned int i = 10; i < 101; i=i+10){
+	double end = 10;
 	for (unsigned int k = 0; k < end; k++){
-	//cout << "Started with i=" << i << " :"<< endl;
 	vector<int> coeff1;
 	vector<int> coeff2;
 	for (unsigned int j = 0; j < i; j++){
@@ -159,11 +159,8 @@ int main(){
 	coeff2.push_back(randomNumber2);
 	}
 	BadicRepresentation<B> x(coeff1);
-	//cout << x << endl;
 	BadicRepresentation<B> y(coeff2);
-	//cout << y << endl;
 	BadicRepresentation<B> z;
-	//cout << "randomized whole numbers created. Multiplication starts now." << endl;
 
 
 	double time1 = 0.0, time2 = 0.0, time3 = 0.0, tstart;
@@ -173,7 +170,6 @@ int main(){
 	time1 = time1 / CLOCKS_PER_SEC;
 	if (k == 0){ times.push_back(time1); }
 	else { times.at(times.size() - 1) = times.at(times.size() - 1) + time1; }
-	//cout << "Fundamental beendet" << endl;
 
 	tstart = clock();
 	BadicRepresentation<B> z2 = Karatsuba<B>(x, y);
@@ -181,7 +177,6 @@ int main(){
 	time2 = time2 / CLOCKS_PER_SEC;
 	if (k == 0){ karatimes.push_back(time2);}
 	else { karatimes.at(karatimes.size() - 1) = karatimes.at(karatimes.size() - 1) + time2; }
-	//cout << "Kara beendet" << endl;
 
 	tstart = clock();
 	BadicRepresentation<B> z3 = CleverKaratsuba<B>(x, y);
@@ -189,7 +184,8 @@ int main(){
 	time3 = time3 / CLOCKS_PER_SEC;
 	if (k == 0){ cleverkaratimes.push_back(time3); }
 	else { cleverkaratimes.at(cleverkaratimes.size() - 1) = cleverkaratimes.at(cleverkaratimes.size() - 1) + time3; }
-	//cout << "CleverKara beendet" << endl;
+
+	//Die Korrektheit der Berechnungen kann durch ein cout von z1, z2, z3 eingesehen werden
 
 
 	}
@@ -200,7 +196,8 @@ int main(){
 	/*
 	Testet die Laufzeit der FastMultiplyPoly Funktion
 	*/
-	/*const int B = 10;
+	/*
+	const int B = 10;
 	int randomNr;
 	int randomNr2;
 	vector<int> coeff1;
@@ -213,9 +210,7 @@ int main(){
 		coeff2.push_back(randomNr2);
 	}
 	IntegerPolynom<B> f(coeff1);
-	//cout << f << endl;
 	IntegerPolynom<B> g(coeff2);
-	//cout << g << endl;
 
 	int gradsumme = 2 * grad;
 	int zweipotenzsumme = 1;
@@ -236,10 +231,13 @@ int main(){
 	IntegerPolynom<B> z2 = FastMultiplyPoly<B>(f, g, zweipotenzsumme, zetas);
 	timer = clock() - timestart;
 	timer = timer / CLOCKS_PER_SEC;
-	/*cout << z2 << endl;
+
+	//zeige Korrektheit der Berechnungen
+	cout << z2 << endl;
 	cout << endl;
 	cout << FundamentalMultiplyPoly(f, g) << endl;
-	cout << endl;*/
+	cout << endl;
+	*/
 
 	/*
 	Testet die Geschwindigkeit zwischen gewöhnlicher und schneller Polynom Multiplikation
@@ -252,10 +250,9 @@ int main(){
 	vector<double> times;
 	vector<double> dfttimes;
 	//Zeitmessung
-	for (unsigned int i = 10; i < 101; i = i + 10){
+	for (unsigned int i = 100; i < 2001; i = i + 100){
 		double end = 1;
 		for (unsigned int k = 0; k < end; k++){
-			//cout << "Started with i=" << i << " :"<< endl;
 			vector<int> coeff1;
 			vector<int> coeff2;
 			for (unsigned int j = 0; j < i; j++){
@@ -265,11 +262,7 @@ int main(){
 				coeff2.push_back(randomNumber2);
 			}
 			IntegerPolynom<B> f(coeff1);
-			//cout << x << endl;
 			IntegerPolynom<B> g(coeff2);
-			//cout << y << endl;
-			//cout << "randomized whole numbers created. Multiplication starts now." << endl;
-
 
 			double time1 = 0.0, time2 = 0.0, tstart;
 			tstart = clock();
@@ -278,7 +271,6 @@ int main(){
 			time1 = time1 / CLOCKS_PER_SEC;
 			if (k == 0){ times.push_back(time1); }
 			else { times.at(times.size() - 1) = times.at(times.size() - 1) + time1; }
-			//cout << "Fundamental beendet" << endl;
 
 			int gradsumme = 2 * i;
 			int zweipotenzsumme = 1;
@@ -300,7 +292,6 @@ int main(){
 			time2 = time2 / CLOCKS_PER_SEC;
 			if (k == 0){ dfttimes.push_back(time2); }
 			else {dfttimes.at(dfttimes.size() - 1) = dfttimes.at(dfttimes.size() - 1) + time2; }
-			//cout << "Kara beendet" << endl;
 			
 		}
 		cout << "i=" << i << " - time=" << times.at(times.size() - 1) / end << " & dfttime= " << dfttimes.at(dfttimes.size() - 1) / end << endl;
@@ -325,14 +316,16 @@ int main(){
 	/*
 	Laufzeitvergleich Fundamental vs Fast
 	*/
+	/*
 	const int B = 2;
 	srand(time(NULL));
 	int randnr1;
 	int randnr2;
 	vector<double> fundatimes;
 	vector<double> fasttimes;
+	vector<double> karatimes;
 	//Zeitmessung
-	for (unsigned int i = 100; i < 1000; i = i + 100){
+	for (unsigned int i = 100; i < 2001; i = i + 100){
 		double end = 1;
 		for (unsigned int k = 0; k < end; k++){
 			vector<int> coeff1;
@@ -346,7 +339,7 @@ int main(){
 			BadicRepresentation<B> x(coeff1);
 			BadicRepresentation<B> y(coeff2);
 			
-			double time1 = 0.0, time2 = 0.0, tstart;
+			double time1 = 0.0, time2 = 0.0, time3=0.0, tstart;
 			tstart = clock();
 			BadicRepresentation<B> z1 = FundamentalMultiply<B>(x, y);
 			time1 = clock() - tstart;
@@ -361,12 +354,17 @@ int main(){
 			if (k == 0){ fasttimes.push_back(time2); }
 			else { fasttimes.at(fasttimes.size() - 1) = fasttimes.at(fasttimes.size() - 1) + time2; }
 
+			tstart = clock();
+			BadicRepresentation<B> z3 = CleverKaratsuba<B>(x, y);
+			time3 = clock() - tstart;
+			time3 = time3 / CLOCKS_PER_SEC;
+			if (k == 0){ karatimes.push_back(time3); }
+			else { karatimes.at(karatimes.size() - 1) = karatimes.at(karatimes.size() - 1) + time3; }
+
 		}
-		cout << "i=" << i << " - time=" << fundatimes.at(fundatimes.size() - 1) / end << " & fasttime= " << fasttimes.at(fasttimes.size() - 1) / end << endl;
+		cout << "i=" << i << " - time=" << fundatimes.at(fundatimes.size() - 1) / end << " & karatime= " << karatimes.at(karatimes.size() - 1) / end << " & fasttime= " << fasttimes.at(fasttimes.size() - 1) / end << endl;
 	}
-	
-
-
+	*/
 
 	//Stellt sicher, dass sich die Konsolenanwendung nicht schließt
 	int tra;
